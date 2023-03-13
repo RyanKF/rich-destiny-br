@@ -2,12 +2,12 @@ package main
 
 // Empty ones need to be kept!
 var largeImageActivityModes = map[string][]string{
-	"anniversary": {"Dares of Eternity"},
-	"beyondlight": {"Empire Hunt"},
-	"control":     {"Control: Competitive", "Control: Quickplay"},
-	"crucible": {"Rift", "Quickplay PvP", "Salvage", "Supremacy", "Mayhem", "Team Scorched", "Scorched", "Survival", "Competitive Co-Op",
-		"Breakthrough", "Competitive PvP", "Momentum", "Zone Control", "Clash: Competitive", "Countdown", "Showdown", "Elimination",
-		"Rumble", "Clash", "Lockdown", "Momentum Control", "The Crucible", "Classic Mix"},
+	"anniversary": {"Desafios da Eternidade"},
+	"beyondlight": {"Caçada do Império"},
+	"control":     {"Controle: Competitivo", "Controle: Jogo Rápido"},
+	"crucible": {"Fissura", "Jogo Rápido PvP", "Salvage", "Supremacy", "Caos", "Caustificação em Equipe", "Scorched", "Sobrevivencia", "Co-Op Competitivo",
+		"Breakthrough", "PvP Competitivo", "Momentum", "Controle de Zonas", "Clash: Competitive", "Countdown", "Showdown", "Eliminação",
+		"Briga", "Clash", "Lockdown", "Controle de Impulso", "The Crucible", "Classic Mix"},
 	"destinylogo":        {},
 	"doubles":            {"All Doubles"},
 	"dungeon":            {},
@@ -19,7 +19,7 @@ var largeImageActivityModes = map[string][]string{
 	"lostsector":         {},
 	"menagerie":          {"The Menagerie"},
 	"nightmarehunt":      {},
-	"privatecrucible":    {"Private Matches"},
+	"privatecrucible":    {"Partida Privada"},
 	"raid":               {},
 	"reckoning":          {"The Reckoning"},
 	"seasonchosen":       {},
@@ -29,30 +29,30 @@ var largeImageActivityModes = map[string][]string{
 	"seasonsplicer":      {},
 	"shadowkeep":         {},
 	"socialall":          {"Social", "All"},
-	"storypvecoopheroic": {"Heroic Adventure", "Offensive", "Story", "PvE"},
-	"strikes":            {"Scored Prestige Nightfall", "Scored Nightfall Strikes", "Nightfall Strikes", "Prestige Nightfall", "Strike", "Vanguard Op", "Nightfall"},
+	"storypvecoopheroic": {"Aventura Heroica", "Ofensiva", "História", "PvE"},
+	"strikes":            {"Scored Prestige Nightfall", "Scored Nightfall Strikes", "Assaltos do Anoitecer", "Anoitecer Prestígio", "Assalto", "Operação da Vanguarda", "Anoitecer"},
 	"thenine":            {"Trials of the Nine", "Trials of the Nine Countdown", "Trials of the Nine Survival"},
 	"thewitchqueen":      {},
-	"trialsofosiris":     {"The Sundial", "Lighthouse Simulation"},
+	"trialsofosiris":     {"The Sundial", "Simulação do Farol"},
 	"vexoffensive":       {},
 	"wellspring":         {},
 }
 
 // Maps classID to class name
 var classImages = map[int32]string{
-	0: "titan",
-	1: "hunter",
-	2: "warlock",
+	0: "Titã",
+	1: "Caçador",
+	2: "Arcano",
 }
 
 var scoredLostSectors = []string{
 	"K1",                            // The Moon
-	"Concealed", "E15", "Perdition", // Europa
-	"2A", "Veles", "Quarry", // The Cosmodrome
-	"Scavenger's", "XII", // EDZ
-	"Drowned", "Starlight", "Aphelion", // Dreaming City
-	"Metamorphosis", "Sepulcher", "Extraction", // Savathûn's Throne World
-	"Conflux", // Nessus
+	"Vazio Oculto", "Bunker E15", "Perdição", // Europa
+	"Jardim da Êxodo 2A", "Labirinto de Veles", "A Pedreira", // The Cosmodrome
+	"Covil do Oportunista", "Local de Escavação XII", // EDZ
+	"Baia Dos Desejos Afogados", "Câmara da Luz Estelar", "Recanto do Afélio", // Dreaming City
+	"Metamorfose", "Sepulcro", "Extração", // Savathûn's Throne World
+	"O Confluxo", // Nessus
 }
 var storyMissions = map[string][]string{
 	"shadowkeep":    {"A Mysterious Disturbance", "In Search of Answers", "Ghosts of Our Past", "In the Deep", "Beyond"},

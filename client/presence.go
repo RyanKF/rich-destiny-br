@@ -192,7 +192,7 @@ func updatePresence() {
 		return
 	}
 
-	newActivity.Details = "Launching the game..."
+	newActivity.Details = "Abrindo o Jogo..."
 	setActivity(newActivity, time.Now(), nil)
 }
 
@@ -216,14 +216,14 @@ func transformPlace(place *placeDefinition, activity *activityDefinition) {
 	switch place.DP.Name {
 	case "Earth":
 		if activity.DestinationHash == 2073151843 || activity.DestinationHash == 3990611421 {
-			place.DP.Name = "The Cosmodrome"
+			place.DP.Name = "O Cosmodromo"
 		} else if activity.DestinationHash == 697502628 || activity.DestinationHash == 1199524104 {
-			place.DP.Name = "EDZ"
+			place.DP.Name = "ZME"
 		}
 	case "Rathmore Chaos, Europa":
 		place.DP.Name = "Europa"
 	case "Court of Savathûn, Throne World":
-		place.DP.Name = "Savathûn's Throne World"
+		place.DP.Name = "Mundo-Trono de Savathûn"
 	case "Neptune":
 		place.DP.Name = "Neomuna"
 	}
@@ -235,7 +235,7 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 	if activityMode == nil || activityMode.DP.Name == "" {
 		switch {
 		default:
-			newActivity.Details = "In Orbit"
+			newActivity.Details = "Em Órbita"
 			if storage.OrbitText != "" {
 				newActivity.State = storage.OrbitText
 			}
@@ -245,30 +245,30 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 		switch {
 		case activity.DP.Name == "H.E.L.M." || activity.DP.Name == "The Farm":
 			// Explore - EDZ
-			newActivity.Details = "Social - Earth"
+			newActivity.Details = "Social - Terra"
 			newActivity.State = activity.DP.Name
 			newActivity.LargeImage = "socialall"
 		// case activity.DP.Name == "European Aerial Zone":
 		// 	newActivity.Details = activity.DP.Name
 		case activityMode.DP.Name == "Explore":
 			// Remove double place
-			newActivity.Details = "Explore - " + place.DP.Name
+			newActivity.Details = "Explorando - " + place.DP.Name
 			if strings.Contains(strings.ToLower(activity.DP.Name), "mission") {
 				newActivity.State = activity.DP.Name
 			}
 			// Unknown Space is Eternity
 			if place.DP.Name == "Unknown Space" {
-				newActivity.Details = "Traversing Eternity"
+				newActivity.Details = "Atravessando a Eternidade"
 				newActivity.LargeImage = "anniversary"
 			}
 		case strings.Contains(activity.DP.Name, "Defiant Battleground"):
 			if strings.Contains(activity.DP.Name, "Orbital Prison") {
-				newActivity.Details = "Defiant Battleground - Orbital Prison"
+				newActivity.Details = "Campo de Batalha da Resistência - Prisão Orbital"
 			} else {
-				newActivity.Details = "Defiant Battleground - " + place.DP.Name
+				newActivity.Details = "Campo de Batalha da Resistência - " + place.DP.Name
 			}
 			if strings.Contains(activity.DP.Name, "Legend") {
-				newActivity.State = "Difficulty: Legend"
+				newActivity.State = "Dificuldade: Lenda"
 			}
 			newActivity.LargeImage = "seasondefiance"
 		// case strings.HasPrefix(activity.DP.Name, "Ketchcrash"):
@@ -286,7 +286,7 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 		// 	newActivity.State = strings.SplitN(activity.DP.Name, " - ", 2)[1]
 		// 	newActivity.LargeImage = "seasonhaunted"
 		case strings.HasPrefix(activity.DP.Name, "The Wellspring:"):
-			newActivity.Details = "The Wellspring - " + place.DP.Name
+			newActivity.Details = "A Nascente - " + place.DP.Name
 			newActivity.State = strings.SplitN(activity.DP.Name, ": ", 2)[1]
 			newActivity.LargeImage = "wellspring"
 		case strings.Contains(activity.DP.Name, "PsiOps Battleground"):
@@ -296,10 +296,10 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 			newActivity.LargeImage = "seasonrisen"
 		case activityMode.DP.Name == "Dares of Eternity":
 			newActivity.Details = activityMode.DP.Name
-			newActivity.State = "Difficulty: " + strings.Split(activity.DP.Name, ": ")[1]
+			newActivity.State = "Dificuldade: " + strings.Split(activity.DP.Name, ": ")[1]
 			newActivity.LargeImage = "anniversary"
 		case activity.DP.Name == "Haunted Sectors":
-			newActivity.Details = "Haunted Sector"
+			newActivity.Details = "Setores Assombrados"
 			newActivity.State = place.DP.Name
 			newActivity.LargeImage = "hauntedforest"
 		// case strings.HasPrefix(activity.DP.Name, "Shattered Realm"):
@@ -321,28 +321,28 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 		// 	newActivity.LargeImage = "menagerie"
 		case activity.DP.Name == "The Shattered Throne":
 			// Story - The Dreaming City | The Shattered Throne
-			newActivity.Details = "Dungeon - The Dreaming City"
+			newActivity.Details = "Masmorra - Cidade Onírica"
 			newActivity.State = activity.DP.Name
 			newActivity.LargeImage = "dungeon"
 		case activity.DP.Name == "Prophecy":
 			// Change from Earth to IX Realms
-			newActivity.Details = "Dungeon - IX Realms"
+			newActivity.Details = "Masmorra - Reino dos Nove"
 			newActivity.State = activity.DP.Name
 		case strings.HasPrefix(activity.DP.Name, "Grasp of Avarice"):
 			// Change from Earth to The Cosmodrome
-			newActivity.Details = "Dungeon - The Cosmodrome"
+			newActivity.Details = "Masmorra - O Cosmódromo"
 			newActivity.State = activity.DP.Name
 		case strings.HasPrefix(activity.DP.Name, "Last Wish"):
 			// Remove Level: XX from the state
-			newActivity.Details = "Raid - The Dreaming City"
-			newActivity.State = "Last Wish"
+			newActivity.Details = "Incursão - Cidade Onírica"
+			newActivity.State = "Último Desejo"
 		case strings.HasPrefix(activity.DP.Name, "Garden of Salvation"):
 			// Change from Moon to Black Garden
-			newActivity.Details = "Raid - Black Garden"
+			newActivity.Details = "Incursão - Jardim Sombrio"
 			newActivity.State = activity.DP.Name
 		case activity.ActivityTypeHash == 332181804:
 			// Story - The Moon | Nightmare Hunt: name: difficulty
-			newActivity.Details = "Nightmare Hunt - " + place.DP.Name
+			newActivity.Details = "Caças aos Pesadelos - " + place.DP.Name
 			newActivity.State = strings.SplitN(activity.DP.Name, ":", 2)[1]
 			newActivity.LargeImage = "shadowkeep"
 		// case activity.DP.Name == "Last City: Eliksni Quarter":
@@ -350,7 +350,7 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 		// 	newActivity.LargeImage = "storypvecoopheroic"
 		// Keep this case at the very bottom
 		case activityMode.DP.Name == "Story":
-			newActivity.Details = "Story - " + place.DP.Name
+			newActivity.Details = "História - " + place.DP.Name
 			newActivity.State = activity.DP.Name
 			for campaign, missions := range storyMissions {
 				for _, m := range missions {
@@ -365,16 +365,16 @@ func transformActivity(charID string, activityHash, activityModeHash int32, acti
 				// Scored lost sectors are seen as scored nightfall strikes
 				for _, ls := range scoredLostSectors {
 					if strings.Contains(activity.DP.Name, ls) {
-						newActivity.Details = "Lost Sector - " + place.DP.Name
+						newActivity.Details = "Setor Perdido - " + place.DP.Name
 						newActivity.State = activity.DP.Name
 						newActivity.LargeImage = "lostsector"
 						return
 					}
 				}
 				// It was not a lost sector
-				newActivity.Details = "Nightfall: The Ordeal - " + place.DP.Name
+				newActivity.Details = "Anoitecer - " + place.DP.Name
 				a := strings.Split(activity.DP.Name, ": ")
-				newActivity.State = "Difficulty: " + a[len(a)-1]
+				newActivity.State = "Dificuldade: " + a[len(a)-1]
 			} else {
 				newActivity.Details = activityMode.DP.Name + " - " + place.DP.Name
 				newActivity.State = activity.DP.Name
@@ -498,6 +498,6 @@ func getLargeImage(name string) string {
 func setMaintenance() {
 	setActivity(richgo.Activity{
 		LargeImage: "destinylogo",
-		Details:    "Waiting for maintenance to end",
+		Details:    "Esperando a manutenção acabar...",
 	}, time.Now(), nil)
 }
